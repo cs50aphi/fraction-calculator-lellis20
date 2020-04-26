@@ -10,6 +10,8 @@ public class Fraction {
         denom = bot;
     }
 
+
+    // Level 1 Operations
     public int getNumerator() {
         return num;
     }
@@ -23,6 +25,8 @@ public class Fraction {
         return num / denom;
     }
 
+
+    // Level 2 Operations
     public Fraction add(Fraction addend)
     {
         int n1 = this.getNumerator();
@@ -76,4 +80,29 @@ public class Fraction {
         // TODO ADD SIMPLIFY METHOD
         return quotient;
     }
+
+
+    // Level 3 Operations
+    public static int gcd(int num, int denom)
+    {
+        // Find GCD using Euclidian Algorithm
+        int r = denom % num; // remainder
+        int k = num; // divisor
+        int l = denom; // left side
+        if (num > denom)
+        {
+            l = num;
+            k = denom;
+            r = num % denom;
+        }
+
+        while (r != 0)
+        {
+            l = k;
+            k = r;
+            r = l % k;
+        }
+        return k;
+    }
+    // public boolean equals(Fraction )
 }

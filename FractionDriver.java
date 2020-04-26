@@ -16,5 +16,11 @@ public class FractionDriver {
         System.out.println("    Difference of 5/6 and 8/9: " + myFrac.subtract(sec));
         System.out.println("    Product of 5/6 and 8/9: " + myFrac.multiply(sec));
         System.out.println("    Quotient of 5/6 and 8/9: " + myFrac.divide(sec));
+        System.out.println();
+
+        int i = 500;
+        int j = 103;
+        System.out.println("Level 3 operation: ");
+        System.out.println("    GCD of " + i + " and " + j + " : " + myFrac.gcd(i, j));
     }
 }
