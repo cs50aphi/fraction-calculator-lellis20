@@ -1,4 +1,5 @@
 // Fraction by Luke Ellis
+import java.lang.Math;
 
 public class Fraction {
 
@@ -6,8 +7,21 @@ public class Fraction {
     private int denom;
 
     public Fraction(int top, int bot) {
-        num = top;
-        denom = bot;
+        if (top < 0 && bot < 0)
+        {
+            num = Math.abs(top);
+            denom = Math.abs(bot);
+        }
+        else if (bot < 0)
+        {
+            num = 0 - top;
+            denom = Math.abs(bot);
+        }
+        else
+        {
+            num = top;
+            denom = bot;
+        }
     }
 
 
@@ -22,6 +36,14 @@ public class Fraction {
         return num + "/" + denom;
     }
     public double toDouble() {
+        try
+        {
+            double decimal = num / denom;
+        }
+        catch (ArithmeticException e)
+        {
+            System.out.println("ArithmeticException occured. Don't use 0 as a denominator!");
+        }
         return num / denom;
     }
 
@@ -78,6 +100,7 @@ public class Fraction {
         d1 *= n2;
         Fraction quotient = new Fraction(n1, d1);
         // TODO ADD SIMPLIFY METHOD
+        quotient.toLowestTerms();
         return quotient;
     }
 
@@ -85,7 +108,7 @@ public class Fraction {
     // Level 3 Operations
     public static int gcd(int num, int denom)
     {
-        // Find GCD using Euclidian Algorithm
+        // Find GCD using Euclidian Algorithm, replicated method from this video: https://www.youtube.com/watch?v=JUzYl1TYMcU
         int r = denom % num; // remainder
         int k = num; // divisor
         int l = denom; // left side
@@ -104,5 +127,22 @@ public class Fraction {
         }
         return k;
     }
-    // public boolean equals(Fraction )
+    public void toLowestTerms()
+    {
+        // Finds greatest common denominator of the two
+        int gcd = gcd(num, denom);
+        // Changes values of Fraction object num and denom, negative signs stay
+        num /= gcd;
+        denom /= gcd;
+    }
+    public boolean equals(Fraction compare)
+    {
+        this.toLowestTerms();
+        compare.toLowestTerms();
+        if (this.getNumerator() == compare.getNumerator() && this.getDenominator() == compare.getDenominator())
+        {
+            return true;
+        }
+        return false;
+    }
 }

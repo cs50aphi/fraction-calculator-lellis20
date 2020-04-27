@@ -1,8 +1,14 @@
+import java.lang.Math;
+import java.util.Scanner;
+
 public class FractionDriver {
 
     public static void main(String [] args)
     {
-        Fraction myFrac = new Fraction(5, 6);
+        Scanner kb = new Scanner(System.in);
+        System.out.println("Numerator of first fraction: ");
+        
+        Fraction myFrac = new Fraction(5, 0);
         System.out.println("Level 1 operations: ");
         System.out.println("    Numerator: " + myFrac.getNumerator());
         System.out.println("    Denominator: " + myFrac.getDenominator());
@@ -18,9 +24,13 @@ public class FractionDriver {
         System.out.println("    Quotient of 5/6 and 8/9: " + myFrac.divide(sec));
         System.out.println();
 
-        int i = 500;
+        int i = -206;
         int j = 103;
+        Fraction anFrac = new Fraction(20, 58);
+        Fraction compFrac = new Fraction(30, 87);
         System.out.println("Level 3 operation: ");
-        System.out.println("    GCD of " + i + " and " + j + " : " + myFrac.gcd(i, j));
+        System.out.println("    GCD of " + i + " and " + j + " : " + myFrac.gcd(Math.abs(i), Math.abs(j)));
+        System.out.println("    Check if 5/6 equals 8/9: " + myFrac.equals(sec));
+        System.out.println("    Check if 20/58 equals 30/87: " + anFrac.equals(compFrac));
     }
 }
