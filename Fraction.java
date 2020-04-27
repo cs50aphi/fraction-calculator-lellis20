@@ -60,7 +60,7 @@ public class Fraction {
         n1 *= d2;
         n2 *= d1;
         Fraction sum = new Fraction(n1 + n2, pd1);
-        // TODO ADD SIMPLIFY METHOD
+        sum.toLowestTerms();
         return sum;
     }
     public Fraction subtract(Fraction subtrahend)
@@ -74,7 +74,8 @@ public class Fraction {
         n1 *= d2;
         n2 *= d1;
         Fraction difference = new Fraction(n1 - n2, pd1);
-        // TODO ADD SIMPLIFY METHOD
+        difference.toLowestTerms();
+
         return difference;
     }
     public Fraction multiply(Fraction multiplier)
@@ -86,7 +87,8 @@ public class Fraction {
         n1 *= n2;
         d1 *= d2;
         Fraction product = new Fraction(n1, d1);
-        // TODO ADD SIMPLIFY METHOD
+        product.toLowestTerms();
+
         return product;
     }
     public Fraction divide(Fraction divisor)
@@ -99,8 +101,8 @@ public class Fraction {
         n1 *= d2;
         d1 *= n2;
         Fraction quotient = new Fraction(n1, d1);
-        // TODO ADD SIMPLIFY METHOD
         quotient.toLowestTerms();
+
         return quotient;
     }
 
