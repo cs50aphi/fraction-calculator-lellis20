@@ -23,6 +23,11 @@ public class Fraction {
             denom = bot;
         }
     }
+    public Fraction(int whole)
+    {
+        num = whole;
+        denom = 1;
+    }
 
 
     // Level 1 Operations
@@ -33,6 +38,7 @@ public class Fraction {
         return denom;
     }
     public String toString() {
+        if (denom == 1) return "" + num;
         return num + "/" + denom;
     }
     public double toDouble() {
