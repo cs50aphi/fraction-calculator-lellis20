@@ -77,16 +77,19 @@ public class FractionCalculator
         boolean check = false;
         String input = "";
         System.out.print("Please enter a fraction (a/b) or integer (a): ");
+        // Until validFraction test is passed, keep asking!
         while (!check)
         {
             input = kb.next();
             check = validFraction(input);
         }
+        // If the input is just a whole number, create the fraction and exit
         if (isNumber(input))
         {
             Fraction specFrac = new Fraction(Integer.parseInt(input));
             return specFrac;
         }
+        // Find the / and make each substring of num and denom, parse string to int
         int vinc = input.indexOf("/");
         String first = input.substring(0, vinc);
         String second = input.substring(vinc + 1);
